@@ -33,7 +33,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2 fixed-top">
         <div className="navbar-brand">
           <Emoji>:book: Google Book Hack</Emoji>
         </div>

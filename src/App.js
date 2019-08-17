@@ -5,15 +5,18 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import Emoji from "@stej/emoji";
+
 import Home from "./pages/Home";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
+
 import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
-      <div>
+      <>
         <Nav />
         <Switch>
           <Route exact path="/">
@@ -23,7 +26,13 @@ function App() {
           <Route exact path="/saved" component={Saved} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
+        <div className="fixed-bottom bg-white">
+          <hr />
+          <p className="pull-right m-2">
+            <Emoji>:copyright:</Emoji> 2019 Nobody
+          </p>
+        </div>
+      </>
     </Router>
   );
 }
