@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Emoji from "@stej/emoji";
 import "./style.css";
 
 class Nav extends Component {
@@ -12,7 +13,7 @@ class Nav extends Component {
     const newState = { width: window.innerWidth };
 
     if (this.state.open && newState.width < 991) {
-      newState.open = false
+      newState.open = false;
     }
 
     this.setState(newState);
@@ -22,7 +23,7 @@ class Nav extends Component {
     this.setState({ open: !this.state.open });
   };
 
-componentDidMount() {
+  componentDidMount() {
     window.addEventListener("resize", this.updateWidth);
   }
 
@@ -33,9 +34,9 @@ componentDidMount() {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
-        <Link className="navbar-brand" to="/">
-          Google Books
-        </Link>
+        <div className="navbar-brand">
+          <Emoji>:book: Google Book Hack</Emoji>
+        </div>
         <button
           onClick={this.toggleNav}
           className="navbar-toggler"
@@ -47,13 +48,20 @@ componentDidMount() {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+        <div
+          className={`${this.state.open ? "" : "collapse "}navbar-collapse`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
+                className={
+                  window.location.pathname === "/search"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+                to="/search"
               >
                 Search
               </Link>
@@ -61,7 +69,11 @@ componentDidMount() {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/saved"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/saved"
               >
                 Saved
